@@ -74,5 +74,12 @@ public class ShaderHelper {
         return programObjectId;
     }
 
-
+    // 验证OpenGL程序对象
+    public static boolean validateProgram(int programObjectId) {
+        glValidateProgram(programObjectId);
+        final int[] validateStatus = new int[1];
+        glGetProgramiv(programObjectId, GL_VALIDATE_STATUS, validateStatus, 0);
+        LogUtils.e("Results of validating program: " + validateStatus[0] + "\nLog:" + glGetProgramInfoLog(programObjectId));
+        return validateStatus[0] != 0;
+    }
 }

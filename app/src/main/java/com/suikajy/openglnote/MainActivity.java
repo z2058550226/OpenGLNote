@@ -7,12 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     enum Demo {
-        AIR_HOCKEY("air hockey", AirHockeyActivity.class);
+        AIR_HOCKEY("air hockey", com.suikajy.openglnote.chapter2_3.AirHockeyActivity.class),
+        AIR_HOCKEY2("air hockey2", com.suikajy.openglnote.chapter4.AirHockeyActivity.class);
 
         private final String demoName;
         private final Class<? extends Activity> activityClz;
@@ -28,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ListView lv = findViewById(R.id.lv_demo);
+        lv.setAdapter(new Adapter());
     }
 
     private class Adapter extends BaseAdapter {

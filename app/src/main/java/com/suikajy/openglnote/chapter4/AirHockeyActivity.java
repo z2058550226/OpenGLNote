@@ -1,4 +1,4 @@
-package com.suikajy.openglnote;
+package com.suikajy.openglnote.chapter4;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -15,11 +15,6 @@ import android.widget.Toast;
  */
 public class AirHockeyActivity extends AppCompatActivity {
 
-    public static void start(Context context) {
-        Intent intent = new Intent(context, AirHockeyActivity.class);
-        context.startActivity(intent);
-    }
-
     private GLSurfaceView glSurfaceView;
     private boolean rendererSet = false;
 
@@ -32,7 +27,7 @@ public class AirHockeyActivity extends AppCompatActivity {
             glSurfaceView.setEGLContextClientVersion(2);
 
             // Assign our renderer;
-            glSurfaceView.setRenderer(new AirHockeyRenderer());
+            glSurfaceView.setRenderer(new AirHockeyRenderer(this));
             rendererSet = true;
         } else {
             Toast.makeText(this, "This device does not support OpenGL ES 2.0.", Toast.LENGTH_LONG).show();

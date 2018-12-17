@@ -3,6 +3,9 @@ package com.suikajy.openglnote;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 
+import com.suikajy.openglnote.util.ShaderHelper;
+import com.suikajy.openglnote.util.TextResourceReader;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -18,6 +21,8 @@ public class AirHockeyRenderer implements GLSurfaceView.Renderer {
     private static final int POSITION_COMPONENT_COUNT = 2;
     private static final int BYTES_PER_FLOAT = 4; // 一个java float占32位，也就是4个字节
     private final FloatBuffer vertexData;
+    // 存储链接程序ID
+    private int program;
 
     // 定义三角形的时候总是以逆时针的顺序排列顶点，这称为卷曲顺序（winding order）。
     // 在任何地方都使用这种顺序可以优化性能
@@ -70,6 +75,14 @@ public class AirHockeyRenderer implements GLSurfaceView.Renderer {
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         // 清空屏幕颜色为红色
         GLES20.glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+        String vertexShaderSource = TextResourceReader
+                .readTextFileFromResource(R.raw.simple_vertex_shader);
+        String fragmentShaderSource = TextResourceReader
+                .readTextFileFromResource(R.raw.simple_fragment_shader);
+
+        int vertexShader = ShaderHelper.compileVertexShader(vertexShaderSource);
+        int fragmentSahder = ShaderHelper.compileFragmentShader(fragmentShaderSource);
+        // 通过链接程序把着色器链接起来
     }
 
     @Override

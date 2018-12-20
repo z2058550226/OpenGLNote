@@ -1,4 +1,4 @@
-package com.suikajy.openglnote.chapter4;
+package com.suikajy.openglnote.chapter5;
 
 import android.app.ActivityManager;
 import android.content.Context;

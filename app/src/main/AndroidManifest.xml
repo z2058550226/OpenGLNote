@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".chapter2_3.AirHockeyActivity" />
         <activity android:name=".chapter4.AirHockeyActivity" />
+        <activity android:name=".chapter5.AirHockeyActivity" />
     </application>
 
 </manifest>

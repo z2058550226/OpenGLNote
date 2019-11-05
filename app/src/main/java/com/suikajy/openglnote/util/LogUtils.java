@@ -2,7 +2,9 @@ package com.suikajy.openglnote.util;
 
 import android.util.Log;
 
-import static com.suikajy.openglnote.global.Config.DEBUG;
+import com.suikajy.openglnote.Config;
+
+import static com.suikajy.openglnote.Config.DEBUG;
 
 
 /**
@@ -49,7 +51,7 @@ public class LogUtils {
     }
 
     public static void e(String... args) {
-        if (!DEBUG) {
+        if (!Config.DEBUG) {
             return;
         }
         if (args.length == 0) {
@@ -71,35 +73,35 @@ public class LogUtils {
     }
 
     public static void i(String message) {
-        if (DEBUG) {
+        if (Config.DEBUG) {
             getMethodNames(new Throwable().getStackTrace());
             Log.i(prefixFilter + className, createLog(message));
         }
     }
 
     public static void d(String message) {
-        if (DEBUG) {
+        if (Config.DEBUG) {
             getMethodNames(new Throwable().getStackTrace());
             Log.d(prefixFilter + className, createLog(message));
         }
     }
 
     public static void v(String message) {
-        if (DEBUG) {
+        if (Config.DEBUG) {
             getMethodNames(new Throwable().getStackTrace());
             Log.v(prefixFilter + className, createLog(message));
         }
     }
 
     public static void w(String message) {
-        if (DEBUG) {
+        if (Config.DEBUG) {
             getMethodNames(new Throwable().getStackTrace());
             Log.w(prefixFilter + className, createLog(message));
         }
     }
 
     public static void wtf(String message) {
-        if (DEBUG) {
+        if (Config.DEBUG) {
             getMethodNames(new Throwable().getStackTrace());
             Log.wtf(prefixFilter + className, createLog(message));
         }

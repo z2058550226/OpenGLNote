@@ -3,16 +3,22 @@ package com.suikajy.openglnote;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.suikajy.openglnote.ch1_prepare.Ch1Activity;
+
+import timber.log.Timber;
+
 public class MainActivity extends AppCompatActivity {
 
     enum Demo {
+        CH1("ch1 prepare", Ch1Activity.class),
         AIR_HOCKEY("air hockey", com.suikajy.openglnote.chapter2_3.AirHockeyActivity.class),
         AIR_HOCKEY2("air hockey2", com.suikajy.openglnote.chapter4.AirHockeyActivity.class);
 
@@ -25,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Timber.e("Is it OK?");
         ListView lv = findViewById(R.id.lv_demo);
         lv.setAdapter(new Adapter());
     }

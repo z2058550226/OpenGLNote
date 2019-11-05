@@ -4,7 +4,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.support.annotation.RawRes;
 
-import com.suikajy.openglnote.global.App;
+import com.suikajy.openglnote.App;
+import com.suikajy.openglnote.AppKt;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +18,7 @@ import java.io.InputStreamReader;
 public class TextResourceReader {
 
     public static String readTextFileFromResource(@RawRes int resourceId) {
-        return readTextFileFromResource(App.getInstance(), resourceId);
+        return readTextFileFromResource(AppKt.getApplication(), resourceId);
     }
 
     public static String readTextFileFromResource(Context context, int resourceId) {

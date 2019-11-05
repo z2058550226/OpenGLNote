@@ -4,6 +4,7 @@ import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 
+import com.suikajy.openglnote.Config;
 import com.suikajy.openglnote.R;
 import com.suikajy.openglnote.util.ShaderHelper;
 import com.suikajy.openglnote.util.TextResourceReader;
@@ -28,7 +29,7 @@ import static android.opengl.GLES20.glGetUniformLocation;
 import static android.opengl.GLES20.glUniform4f;
 import static android.opengl.GLES20.glUseProgram;
 import static android.opengl.GLES20.glVertexAttribPointer;
-import static com.suikajy.openglnote.global.Config.DEBUG;
+import static com.suikajy.openglnote.Config.DEBUG;
 
 /**
  * Created by suikajy on 2018.12.13
@@ -109,7 +110,7 @@ public class AirHockeyRenderer implements GLSurfaceView.Renderer {
         int fragmentShader = ShaderHelper.compileFragmentShader(fragmentShaderSource);
         // 通过链接程序把着色器链接起来
         program = ShaderHelper.linkProgram(vertexShader, fragmentShader);
-        if (DEBUG) {
+        if (Config.DEBUG) {
             ShaderHelper.validateProgram(program);
         }
         glUseProgram(program);
